@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #11081f;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,57 +14,51 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
+}
+.dontRead {
+  color: white;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
+.nav {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #27e9fa;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  justify-content: space-evenly;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.mainContent {
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+}
+.parentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.questionBox {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.questionBox Button {
+  width: 180px;
+  height: 40px;
   cursor: pointer;
-  transition: border-color 0.25s;
+  background: transparent;
+  border: 1px solid #27e9fa;
+  outline: none;
+  transition: 0.5s ease-in-out;
+  margin: 10px;
+  border-radius: 0px;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.questionBox Button:hover {
+  background-color: #16c3d3;
+  font-size: 17px;
 }
