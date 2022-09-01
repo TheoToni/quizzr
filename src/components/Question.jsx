@@ -2,21 +2,31 @@ import React from "react";
 import data from "../data";
 
 function Question() {
-  function checkAnswer() {
-    console.log("checking the answer");
-  }
+  const checkAnswerButtonClick = () => {
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setcurrentQuestion(nextQuestion);
+    }
+  };
 
   const [questions, setQuestions] = React.useState(data);
-  const currentQuestion = questions[0];
-  let counter = 0;
+  const [currentQuestion, setcurrentQuestion] = React.useState(0);
 
   return (
     <div className="questionBox">
-      <h2>{questions[counter].question}</h2>
-      <button onClick={checkAnswer}>{questions[counter].answer1}</button>
-      <button onClick={checkAnswer}>{questions[counter].answer2}</button>
-      <button onClick={checkAnswer}>{questions[counter].answer3}</button>
-      <button onClick={checkAnswer}>{questions[counter].answer3}</button>
+      <h2>{questions[currentQuestion].questionText}</h2>
+      <button onClick={checkAnswerButtonClick}>
+        {questions[currentQuestion].answerOptions[0].answerText}
+      </button>
+      <button onClick={checkAnswerButtonClick}>
+        {questions[currentQuestion].answerOptions[1].answerText}
+      </button>
+      <button onClick={checkAnswerButtonClick}>
+        {questions[currentQuestion].answerOptions[2].answerText}
+      </button>
+      <button onClick={checkAnswerButtonClick}>
+        {questions[currentQuestion].answerOptions[3].answerText}
+      </button>
     </div>
   );
 }
