@@ -22,6 +22,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .nav {
   display: flex;
@@ -61,4 +62,8 @@ body {
 .questionBox Button:hover {
   background-color: #16c3d3;
   font-size: 17px;
+}
+.score {
+  font-size: 50px;
+  padding-top: 10%;
 }

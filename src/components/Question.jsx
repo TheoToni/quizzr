@@ -2,10 +2,15 @@ import React from "react";
 import data from "../data";
 
 function Question() {
-  const checkAnswerButtonClick = () => {
+  const checkAnswerButtonClick = (isCorrect) => {
+    if (isCorrect === true) {
+      alert("this answer is correct");
+    }
+
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setcurrentQuestion(nextQuestion);
+      isCorrect;
     }
   };
 
@@ -15,18 +20,11 @@ function Question() {
   return (
     <div className="questionBox">
       <h2>{questions[currentQuestion].questionText}</h2>
-      <button onClick={checkAnswerButtonClick}>
-        {questions[currentQuestion].answerOptions[0].answerText}
-      </button>
-      <button onClick={checkAnswerButtonClick}>
-        {questions[currentQuestion].answerOptions[1].answerText}
-      </button>
-      <button onClick={checkAnswerButtonClick}>
-        {questions[currentQuestion].answerOptions[2].answerText}
-      </button>
-      <button onClick={checkAnswerButtonClick}>
-        {questions[currentQuestion].answerOptions[3].answerText}
-      </button>
+      {questions[currentQuestion].answerOptions.map((answerOption) => (
+        <button onClick={() => checkAnswerButtonClick(answerOption.isCorrect)}>
+          {answerOption.answerText}
+        </button>
+      ))}
     </div>
   );
 }
