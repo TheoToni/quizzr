@@ -5,20 +5,36 @@ import DontReadMe from "./components/DontReadMe";
 import MainContent from "./components/MainContent";
 import Score from "./components/Score";
 
-function ScoreHandler() {
-  setScore((prevValue) => {
-    return !prevValue;
-  });
-}
-
 function App() {
-  const [score, setScore] = React.useState(false);
+  const [scorePanelActive, setScorePanelActive] = React.useState(false);
+  const [scoreCount, setScoreCount] = React.useState(0);
+
+  function ScorePanelHandler() {
+    setScorePanelActive((prevValue) => {
+      return !prevValue;
+      console.log("scorepanelhandler");
+    });
+  }
+  function ScoreCounter() {
+    setScoreCount((prevValue) => {
+      return prevValue + 1;
+    });
+  }
+
   return (
     <div className="App">
       <Header />
-      <DontReadMe />
+      {!scorePanelActive ? <DontReadMe /> : ""}
       <div className="parentContainer">
-        {score === true ? <Score /> : <MainContent score={ScoreHandler} />}
+        {scorePanelActive === true ? (
+          <Score scoreCount={scoreCount} />
+        ) : (
+          <MainContent
+            handleClick={ScoreCounter}
+            scoreCount={scoreCount}
+            ScorePanelHandler={ScorePanelHandler}
+          />
+        )}
       </div>
     </div>
   );

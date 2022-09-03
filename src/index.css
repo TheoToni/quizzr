@@ -16,6 +16,7 @@
 }
 body {
   margin: 0;
+  text-align: center;
 }
 .dontRead {
   color: white;
@@ -63,7 +64,9 @@ body {
   background-color: #16c3d3;
   font-size: 17px;
 }
-.score {
+.score h2 {
   font-size: 50px;
-  padding-top: 10%;
+}
+.score p {
+  font-size: 36px;
 }
